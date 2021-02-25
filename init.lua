@@ -1,0 +1,5 @@
+minetest.register_on_mods_loaded(function()
+    minetest.after(15, function()
+        minetest.request_shutdown("normal shutdown", false)
+    end)
+end)
