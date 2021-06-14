@@ -30,13 +30,17 @@ end
 local function give_items(player, inv)
 	local sword = ItemStack("pala_tools:sword_paladium")
 	mcl_enchanting.set_enchanted_itemstring(sword)
-	mcl_enchanting.set_enchantments(sword, {sharpness = 5, unbreaking = 3, fire_aspect = 2})
+	mcl_enchanting.set_enchantments(sword, {sharpness = 5, unbreaking = 3})
 	local knocker = ItemStack("pala_tools:infernal_knocker")
 	mcl_enchanting.set_enchanted_itemstring(knocker)
 	mcl_enchanting.set_enchantments(knocker, {knockback = 5, unbreaking = 3})
+	local bow = ItemStack("mcl_bows:bow")
+	mcl_enchanting.set_enchanted_itemstring(bow)
+	mcl_enchanting.set_enchantments(bow, {unbreaking = 3, infinity = 1, punch = 2, power = 5})
 	local itemlist = {
 		sword,
 		knocker,
+		bow,
 		ItemStack("pala_sticks:teleport_stick"),
 		ItemStack("mcl_potions:healing_2_splash 16"),
 		ItemStack("pala_food:apple_pala 4"),
@@ -44,6 +48,7 @@ local function give_items(player, inv)
 		ItemStack("mcl_throwing:ender_pearl 16"),
 		ItemStack("mcl_throwing:ender_pearl 16"),
 		ItemStack("mcl_throwing:ender_pearl 16"),
+		ItemStack("mcl_bows:arrow 64"),
 	}
 	for _,item in ipairs(itemlist) do
 		inv:add_item("main", item)
