@@ -7,6 +7,7 @@
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
 	local item = mcl_enchanting.set_enchantments(ItemStack("pala_armor:helmet_paladium"), {protection = 4, unbreaking = 3})
-	mcl_armor.equip(item, player, true)
+	--mcl_armor.equip(item, player, true)
 	--inv:set_list("armor", {ItemStack(), , enchantments)})
+	inv:set_stack("armor", 2, item)
 end)
