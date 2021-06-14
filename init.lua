@@ -23,9 +23,29 @@ local function set_armor(player, inv)
 	mcl_armor.on_equip(boots, player)
 end
 
+local function give_items(player, inv)
+	local sword = ItemStack("pala_tools:sword_paladium")
+	mcl_enchanting.set_enchantments(sword, {sharpness = 5, unbreaking = 3, fire_aspect = 2})
+	local knocker = ItemStack("pala_tools:infernal_knocker")
+	mcl_enchanting.set_enchantments(knocker, {knockback = 5, unbreaking = 3})
+	local itemlist = {
+		sword,
+		knocker,
+		ItemStack("pala_sticks:teleport_stick"),
+		ItemStack("mcl_potions:healing_2_splash 16"),
+		ItemStack("pala_food:apple_pala 4"),
+		ItemStack("mcl_throwing:ender_pearl 16"),
+		ItemStack("mcl_throwing:ender_pearl 16"),
+		ItemStack("mcl_throwing:ender_pearl 16"),
+		ItemStack("mcl_throwing:ender_pearl 16"),
+	}
+	for _,item in ipairs(itemlist) do
+		inv:add_item("main", item)
+	end
+end
+
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
 	set_armor(player, inv)
-	--mcl_armor.equip(item, player, true)
-	--inv:set_list("armor", {ItemStack(), , enchantments)})
+	give_items(player, inv)
 end)
