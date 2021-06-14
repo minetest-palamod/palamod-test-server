@@ -60,6 +60,8 @@ minetest.register_on_respawnplayer(function(player)
 	local inv = player:get_inventory()
 	inv:set_list("armor", {})
 	inv:set_list("main", {})
+	set_armor(player, inv)
+	give_items(player, inv)
 end)
 
 minetest.register_on_leaveplayer(function(player)
