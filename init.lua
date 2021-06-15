@@ -57,6 +57,8 @@ end
 
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
+	inv:set_list("armor", {})
+	inv:set_list("main", {})
 	set_armor(player, inv)
 	give_items(player, inv)
 end)
